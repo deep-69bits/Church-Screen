@@ -126,7 +126,7 @@ export default function Home() {
               type="text"
               name="name"
               placeholder="Enter your name"
-              className="bg-transparent  w-full focus:outline-none placeholder:text-[16px] placeholder:text-white placeholder:text-opacity-50 text-white"
+              className="bg-transparent  w-full selection:bg-transparent focus:bg-transparent focus:outline-none placeholder:text-[16px] placeholder:text-white placeholder:text-opacity-50 text-white"
               id=""
             />
           </div>
