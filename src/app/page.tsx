@@ -2,32 +2,11 @@
 import Image from "next/image";
 import { useState } from "react";
 
+
 const Profiles = ({ id, man }: any) => {
   return (
-    <div className=" cursor-pointer w-full  flex items-center justify-center ">
-      {man ? (
-        <div className="flex flex-col items-center pb-1">
-          <Image
-            src={`/Images/man.svg`}
-            alt="Man Image"
-            width={60}
-            height={40}
-            className="cursor-pointer my-2"
-          />
-          <span>Avatar 0{id}</span>
-        </div>
-      ) : (
-        <div className="flex flex-col items-center pb-1">
-          <Image
-            src={`/Images/women.svg`}
-            alt="Man Image"
-            width={60}
-            height={40}
-            className="cursor-pointer my-2"
-          />
-          <span>Avatar 0{id}</span>
-        </div>
-      )}
+    <div className="bg-[#FFDBE8] cursor-pointer w-full  flex items-center justify-center rounded-[10px] ">
+      {man ? <Image src={`/Images/male${id}-removebg-preview.png`} alt="Male Avatar" width={60} height={40} className="cursor-pointer my-2" /> : <Image src={`/Images/female${id - 3}-removebg-preview.png`} alt="Female Avatar" className="cursor-pointer my-2" width={60} height={40} />}
     </div>
   );
 };
