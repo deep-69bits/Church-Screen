@@ -2,11 +2,26 @@
 import Image from "next/image";
 import { useState } from "react";
 
-
 const Profiles = ({ id, man }: any) => {
   return (
-    <div className="bg-[#FFDBE8] cursor-pointer w-full  flex items-center justify-center rounded-[10px] ">
-      {man ? <Image src={`/Images/male${id}-removebg-preview.png`} alt="Male Avatar" width={60} height={40} className="cursor-pointer my-2" /> : <Image src={`/Images/female${id - 3}-removebg-preview.png`} alt="Female Avatar" className="cursor-pointer my-2" width={60} height={40} />}
+    <div className=" cursor-pointer w-full  flex items-center justify-center rounded-[10px] ">
+      {man ? (
+        <Image
+          src={`/Images/male${id}-removebg-preview.png`}
+          alt="Male Avatar"
+          width={60}
+          height={40}
+          className="cursor-pointer my-2"
+        />
+      ) : (
+        <Image
+          src={`/Images/female${id - 3}-removebg-preview.png`}
+          alt="Female Avatar"
+          className="cursor-pointer my-2"
+          width={60}
+          height={40}
+        />
+      )}
     </div>
   );
 };
@@ -39,6 +54,17 @@ export default function Home() {
     },
   ];
   const [selected, setselected] = useState(-1);
+  const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
+
+  const handleSubmit = () => {
+    console.log(name, " ", avatar);
+
+    window.open(
+      `https://onthemoons.graphity.world/zgMc49t/calm-joyful-vacation?avatarId=${avatar}&name=${name}`
+    );
+  };
+
   return (
     <main className=" min-h-screen lg:py-0 py-10   selection:bg-[#C3972B] selection:text-white items-center  justify-end  lg:flex block  bg-black w-screen">
       <Image
@@ -104,8 +130,11 @@ export default function Home() {
             <input
               type="text"
               name="name"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
               placeholder="Enter your name"
-              className="bg-transparent  w-full selection:bg-transparent focus:bg-transparent focus:outline-none placeholder:text-[16px] placeholder:text-white placeholder:text-opacity-50 text-white"
+              className="bg-transparent selection:bg-transparent  w-full selection:bg-transparent focus:bg-transparent focus:outline-none placeholder:text-[16px] placeholder:text-white placeholder:text-opacity-50 text-white"
               id=""
             />
           </div>
@@ -122,6 +151,11 @@ export default function Home() {
                 <div
                   onClick={() => {
                     setselected(index);
+                    if (index <= 2) {
+                      setAvatar(`male${index + 1}`);
+                    } else {
+                      setAvatar(`female${index - 2}`);
+                    }
                   }}
                   className={
                     selected == index
@@ -137,7 +171,10 @@ export default function Home() {
           </div>
         </div>
 
-        <button className="w-full bg-[#C3972B] text-white  mt-5  py-3  rounded-[16px]  font-[900] text-[22px]">
+        <button
+          onClick={handleSubmit}
+          className="w-full bg-[#C3972B] text-white  mt-5  py-3  rounded-[16px]  font-[900] text-[22px]"
+        >
           Let’s explore
         </button>
       </div>
