@@ -73,6 +73,7 @@ const handleSubmit = () => {
     // console.log(name, " ", avatar);
 
 setShowSkip(true);
+
     window.open(`https://onthemoons.graphity.world/zgMc49t/calm-joyful-vacation?avatarId=${avatar}&name=${name}`);
     // setShowVideo(false);
 
@@ -161,8 +162,8 @@ setShowSkip(true);
           Your browser does not support the video tag.
         </video>
 
-<button className="absolute mt-[90vh] inset-0 mx-auto bg-[#C3972B] text-white py-3 rounded-[16px] font-[900] text-[22px] z-30 h-[80px] w-1/2 bottom-4" style={{display: showSkip ? 'block' : 'none'}}>
-  Skip
+<button onClick={handleVideoEnd} className="absolute mt-[90vh] inset-0 mx-auto bg-[#C3972B] text-white py-3 rounded-[16px] font-[900] text-[22px] z-30 h-[80px] w-1/2 bottom-4" style={{display: showSkip ? 'block' : 'none'}}>
+  Go to Church
 </button>
 
       {/* )} */}
